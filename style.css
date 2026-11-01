@@ -1,5 +1,5 @@
 .hero-section {
-    background-image: linear-gradient(to bottom, rgba(10, 25, 47, 0.85) 0%, rgba(255,255,255,0.4) 100%), url('cinematic hero image@2x.png');
+    background-image: linear-gradient(to bottom, rgba(10, 25, 47, 0.85) 0%, rgba(0, 255, 255, 0.4) 100%), url('cinematic hero image@2x.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;    /* 1. Prevents the image from stopping or repeating */
@@ -332,3 +332,84 @@ color: #000000;
   transform: translateY(-5px) !important; 
   color: #0a192f !important; 
 }
+
+ .about-page {
+          background-color:  rgba(10, 25, 47, 0.85);
+           font-family: system-ui, -apple-system, sans-serif;
+         }
+
+ #about-heading {
+        margin-top: 20px;
+        margin-bottom: 50px;
+         text-align: left;
+        font-family: 'Montserrat', 'Century Gothic', sans-serif;
+        font-size: 36px;
+        color: #eff2f7
+       
+    }
+
+     .about-page p {
+            text-align: left;
+            font-family:'Calibri', 'Arial', sans-serif;
+            font-size: 25px;
+            color:#e2e8f0;
+            margin-top: -80px;
+            margin-bottom: 100px;
+         }
+
+         .about-page #address {
+            text-align: center;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 20px;
+            color: #f5f8f5;
+            margin-top: 20px;
+            margin-bottom: 20px;
+         }
+
+         .about-page #copyright {
+            text-align: center;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+         }  
+
+         .overview-page {
+          background-color:  rgba(10, 25, 47, 0.85);
+           font-family: system-ui, -apple-system, sans-serif;
+         }
+
+          #overview-heading {
+        margin-top: 20px;
+        margin-bottom: 50px;
+         text-align: left;
+        font-family: 'Montserrat', 'Century Gothic', sans-serif;
+        font-size: 36px;
+        color: #eff2f7
+       
+    }
+
+    #overview-offers {
+        color:#e2e8f0;
+    }
+
+     #type {
+        color:#e2e8f0;
+    }
+
+     #description {
+        color:#e2e8f0;
+    }
+
+     #price {
+        color:#e2e8f0;
+    }
+
+     #gaming-packages {
+        color:#e2e8f0;
+    }
+
+     #most-popular {
+        color:#e2e8f0;
+    }
