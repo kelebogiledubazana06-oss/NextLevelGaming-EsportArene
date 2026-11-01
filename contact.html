@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXT LEVEL GAMING & ESPORTS ARENA
-    </title>
+    <title>NEXT LEVEL GAMING & ESPORTS ARENA</title>
+    <link rel="stylesheet" href="style.css">
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ <style>
+      .error-msg {
+        display: none !important;
+      }
+      .was-validated .show-error {
+        display: block !important;
+        color: #ff4d4d;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+    </style>
 </head>
-<body>
-     <header>
+<body class="contact-page">
+  <header>
         
              <img src="LOGO 1.png" width="200" height="200" alt= >
             <nav>
@@ -21,8 +34,8 @@
         </nav>
     </header>
 
+    <h2>Contact & Booking Enquiry</h2>
     <main>
-    <h2>Contacts & Enquiry</h2>
     <p>Call us: 014 371 0909</p>
     <p>WhatsApp: 083 910 1503</p>
     <p>Email: info@nextlevelgaming.co.za</p>
@@ -31,6 +44,8 @@
     <p>Instagram: NEXT LEVEL GAMING & ESPORTS ARENA</p>
     <p>X: @NextLevelGaming</p>
     <p> TikTok: @NextLevelGaming</p>
+
+     <div id="map" style="height: 400px; width: 100%; border-radius: 8px; margin-top: 20px; border: 1px solid #ccc;"></div>
 
     <h3>Send an Enquiry</h3>
     <form action="#" method="post">
@@ -46,8 +61,13 @@
       <label>Message:</label><br>
       <textarea name="message" rows="4" cols="40"></textarea><br><br>
 
-            <a href="contact.html">Send Enquiry</a>
+       <p id="cta-links">
+           <div style="margin-top: 40px; margin-bottom: 20px;">
+            <a href="contact.html" style="color: white; background-color: #006875; padding: 10px 20px; border-radius: 4px; text-decoration: none; border: 1px solid #334455;">Send Enquiry</a> 
+        </div>
         </p>
+
+    
     </main>
 
     <footer>

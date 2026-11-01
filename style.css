@@ -413,3 +413,59 @@ color: #000000;
      #most-popular {
         color:#e2e8f0;
     }
+
+
+         .contact-page #address {
+            text-align: center;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 20px;
+            color: #f5f8f5;
+            margin-top: 20px;
+            margin-bottom: 20px;
+         }
+
+         .contact-page #copyright {
+            text-align: center;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+         }
+
+         .contact-page {
+ background-color: rgba(10, 25, 47, 0.85); 
+  color: #ffffff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Only transforms the <main> container into a Navy block card on the Contact page */
+.contact-page main {
+  background-color: #18a10b;          
+  color: #ffffff;                      
+  max-width: 600px;                    
+  margin: 40px auto;                   
+  padding: 40px;
+  border-radius: 20px;                 
+  border: 1px solid rgba(212, 175, 55, 0.2); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  height: -1;
+}
+
+.contact-page main input[type="text"],
+.contact-page main input[type="email"],
+.contact-page main input[type="tel"],
+.contact-page main select {
+  width: 100%;                         
+  padding: 12px;
+  background-color: #ffffff;           
+  color: #336394;                      
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;                  
+  margin-bottom: 20px;                 
+  box-sizing: border-box;
+}
+
+
+         
