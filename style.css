@@ -1,0 +1,334 @@
+.hero-section {
+    background-image: linear-gradient(to bottom, rgba(10, 25, 47, 0.85) 0%, rgba(255,255,255,0.4) 100%), url('cinematic hero image@2x.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    /* 1. Prevents the image from stopping or repeating */
+    background-attachment: scroll; 
+    padding: 40px 20px;
+    width: 100%;
+    min-height: 100vh;               /* 2. Forces the section to take up the full view height */
+    box-sizing: border-box;
+    color: #0a192f; 
+}
+
+
+
+  header, footer {
+    width: 100%;
+    box-sizing: border-box; 
+        }
+
+
+         header {
+            background-color: #006875;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 15px 40px;
+        }
+
+        
+
+         header nav a {
+            color: rgb(255, 253, 253);
+            text-decoration: none;
+            margin-left: 10px;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav img {
+            width: 50px;
+            height: 50px;
+        }
+
+           footer {
+            background-color: #006875;
+            color: rgb(255, 255, 255);
+            text-align: center;
+             width: 100%;
+            padding: 20px 0;
+            margin: 0;
+           
+        }
+         footer nav a {
+            color: rgb(8, 8, 8);
+            text-decoration: none;
+            margin-left: 10px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+
+
+
+  h2{
+        text-align: left;
+        font-family: 'Montserrat', 'Century Gothic', sans-serif;
+        font-size: 36px;
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
+
+     #welcome{
+        text-align: left;
+        font-family:'Calibri', 'Arial', sans-serif;
+        font-style: normal;
+        font-size: 50px;
+        color:  #18a10b;
+        margin-top: -100px;
+        margin-bottom: 100px;
+    }
+
+     h4{
+        text-align: left;
+                font-family: 'Montserrat', 'Century Gothic', sans-serif;
+        font-style: normal;
+        font-size: 32px;
+        color:#ffffff;
+        margin-top:-100px;
+        margin-bottom: 100px;
+    }
+
+     h1{
+                font-family:'Calibri', 'Arial', sans-serif;
+color: #000000;
+    }
+
+     h3{
+        
+       color: #000000;
+    }
+
+     h5{
+          
+   color: #000000;
+    }
+
+     #offers {
+      
+        color: #000000;
+    }
+
+
+
+       #welcome-text {
+        margin-top: -0px;
+        margin-bottom: 60px;
+         text-align: left;
+        font-family: 'Montserrat', 'Century Gothic', sans-serif;
+        font-size: 36px;
+        color:#ffffff;
+       
+    }
+
+       .home-page h2 {
+            text-align: left;
+            font-family: 'Montserrat', 'Century Gothic', sans-serif;
+            font-size: 36px;
+            color: #ffffff;
+            margin-top: 200px;
+            margin-bottom: 100px;
+          }
+
+          #paragraph {
+            text-align: left;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 25px;
+            color:#ffffff;
+            margin-top: -100px;
+            margin-bottom: 50px;
+         }
+
+          body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            margin: 0px;
+            padding: 0;
+            width: 100%;
+        }
+
+            .home-page #address {
+              text-align: center;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 20px;
+            color: #f5f8f5;
+            margin-top: 20px;
+            margin-bottom: 20px;
+         }
+
+         .home-page #copyright {
+            text-align: center;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-top: 100px;
+            margin-bottom: 20px;
+         }
+
+          .tiers {
+      max-width: 1200px;
+      margin: 100px auto 0px;
+      background-color:#18a10b;;
+      border: 1px dashed var(--border-card);
+      border-radius: 50px;
+      padding: 24px;
+      text-align: center;
+
+    }
+
+     .tiers h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: var(--acid-green);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .tiers {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: #fdfdfd;
+    }
+
+    .tiers {
+  display: flex;
+  flex-direction: row;
+  /* Automatically wraps columns to fit screens, keeping them uniform */
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tier-box {
+  background-color: #efeff3;   /* White background */
+  padding: 30px;
+  border-radius: 20px;         /* curved corners */
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #000000;              /* black text color */
+  
+  /* Forces all cards to match the height of the tallest card's text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px; 
+  text-align: center;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+  #tier-box {
+    height:auto; /* Allows the box to expand based on content */
+    grid-column: span 2;
+    min-height: 220px; /* Ensures it doesn't shrink too much */ 
+  }
+
+  .tiers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 30px auto;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.tiers {
+  background-color: #18a10b;   /* green box background */
+  border-radius: 16px;         /* curved corners */
+  padding: 24px;
+  flex: 1;                     /* Makes all 3 boxes exactly the same width */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.tiers h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+/* Cleaning up the vertical text spacing inside the boxes */
+.room-card p {
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.tier-box {
+  border: 3px solid #3b82f6; 
+  border-radius: 12px;       
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Runs the color-shifting loop over 6 seconds smoothly and loops forever */
+  animation: cardColorChange 6s infinite ease-in-out;
+}
+
+/* Make the blocks move when you hover over them */
+.tier-box:hover {
+  transform: translateY(-6px);
+}
+
+/* The colors which shift over time */
+@keyframes cardColorChange {
+  0% {
+    border-color: #ff0000; 
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+  }
+  25% {
+    border-color: #eeff00; 
+    box-shadow: 0 4px 15px rgba(248, 248, 246, 0.25);
+  }
+  50% {
+    border-color: #0231ff; 
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+  }
+  75% {
+    border-color: #f304cb; 
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);
+  }
+  100% {
+    border-color: #000000; 
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+  }
+}
+
+/* ==========================================
+   NAVIGATION LINK HOVER ANIMATION
+   ========================================== */
+
+/*smooth navigation */
+.nav-bar a {
+  display: inline-block; /* Required for transform movements to work on text links */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* avoid moving all the links & targets only one link which you hovor over  */
+.nav-bar a:hover {
+  transform: translateY(-4px); 
+  }
+
+  /*This applies the upward movement ONLY to the link being hovered over */
+.nav-bar a:hover, nav a:hover, ul li a:hover, header a:hover {
+  transform: translateY(-5px) !important; 
+  color: #0a192f !important; 
+}
