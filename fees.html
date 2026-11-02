@@ -1,100 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NEXT LEVEL GAMING & ESPORTS ARENA</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT LEVEL GAMING & ESPORTS ARENA - Fees Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .error-msg {
+        display: none;
+        color: #ff4d4d;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-family: 'Calibri', 'Arial', sans-serif;
+      }
+      .was-validated .show-error {
+        display: block !important;
+      }
+      .invalid-border {
+        border: 2px solid #ff4d4d !important;
+      }
+
+      /* Styling for the results box */
+      .result-box {
+        background-color: #006875;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: none;
+        font-family: 'Calibri', 'Arial', sans-serif;
+      }
+    </style>
 </head>
-  <header>
-        
-             <img src="LOGO 1.png" width="200" height="200" alt= >
-            <nav>
+<body class="contact-page">
+    <header>
+        <img src="LOGO 1.png" width="200" height="200" alt="Logo">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="overview.html">Overview</a>
             <a href="contact.html">Contact</a>
             <a href="fees.html">Fees</a>
             <a href="profile.html">Profile</a>
-            <hr>
         </nav>
     </header>
-    <body class="contact-page">
-      <h2>Bookings</h2>
+
+    <h2>Bookings & Fees Calculator</h2>
     <main>
-       
-    <form action="#" method="post">
-      <label>Name:</label><br>
-      <input type="text" name="name" required><br><br>
+        <!-- Dynamic Calculation Results Window -->
+        <div id="calcResults" class="result-box"></div>
 
-      <label>Email:</label><br>
-      <input type="email" name="email" required><br><br>
+        <form id="feesForm" novalidate style="text-align: left;">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" style="padding: 8px; width: 300px; border-radius: 4px; border: 1px solid #334455;" required><br>
+            <div class="error-msg" id="nameError">Please enter your name.</div>
 
-      <label>Phone:</label><br>
-      <input type="tel" name="phone"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="e.g. abcdef@example.com" style="padding: 8px; width: 300px; border-radius: 4px; border: 1px solid #334455;" required><br>
+            <div class="error-msg" id="emailError">Please enter a valid email address.</div>
+            
+            <label for="phone">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 0821234567" style="padding: 8px; width: 300px; border-radius: 4px; border: 1px solid #334455;" required><br>
+            <div class="error-msg" id="phoneError">Please enter a valid 10-digit phone number.</div>
 
-      <label>Gaming Packages:</label><br>
-      
-      <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="vip" style="margin-right: 8px;">
-        VIP Gaming Experience
-      </label>
-      <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="ultimate" style="margin-right: 8px;">
-        Ultimate Gamer Pass
-      </label>
-      <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="esports" style="margin-right: 8px;">
-        Esports Training Package
-      </label>
-      <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="birthday" style="margin-right: 8px;">
-        Birthday Party Package
-      </label>
-      <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="vr" style="margin-right: 8px;">
-        Virtual Reality Experience
-      </label>
-      <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="racing" style="margin-right: 8px;">
-        Racing Simulator Challenge
-      </label>
-       <label style="display: flex; align-items: center; cursor: pointer;">
-        <input type="checkbox" name="session_type[]" value="escape" style="margin-right: 8px;">
-        Escape Room Challenge
-    </label>
-      </select><br><br>
-      
-        <div style="margin-top: 40px; margin-bottom: 20px;">
-      <button type="submit" style="background-color: #006875; color: white; padding: 10px 20px; border-radius: 4px; border: 1px solid #334455;">Calculate Total Fees</button>
-      </div>
-<h2></h2>
+            <label>Gaming Packages (Select multiple to earn discounts):</label><br>
+            <div id="packageGroup" style="margin-top: 10px; margin-bottom: 5px;">
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="vip" data-price="1500" style="margin-right: 8px;">
+                    VIP Gaming Experience (R 1,500)
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="ultimate" data-price="1500" style="margin-right: 8px;">
+                    Ultimate Gamer Pass (R 1,500)
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="esports" data-price="1500" style="margin-right: 8px;">
+                    Esports Training Package (R 1,500)
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="birthday" data-price="1500" style="margin-right: 8px;">
+                    Birthday Party Package (R 1,500)
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="vr" data-price="750" style="margin-right: 8px;">
+                    Virtual Reality Experience (R 750)
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="racing" data-price="750" style="margin-right: 8px;">
+                    Racing Simulator Challenge (R 750)
+                </label>
+                <label style="display: flex; align-items: center; cursor: pointer; margin-bottom: 8px;">
+                    <input type="checkbox" class="pkg-checkbox" name="session_type[]" value="escape" data-price="750" style="margin-right: 8px;">
+                    Escape Room Challenge (R 750)
+                </label>
+            </div>
+            <div class="error-msg" id="pkgError">Please choose at least one gaming package.</div>
+            
+            <div style="margin-top: 20px; margin-bottom: 20px;">
+                <button type="button" id="calcBtn" style="background-color: #006875; color: white; padding: 10px 20px; border-radius: 4px; border: 1px solid #334455; font-size: 15px; font-weight: bold; cursor: pointer;">Calculate Total Fees</button>
+            </div>
 
+            <label for="discounts">Eligible Discount (Auto-selected):</label><br>
+            <select id="discounts" name="discounts" disabled style="padding: 8px; width: 315px; border-radius: 4px; border: 1px solid #334455; background-color: #f3f4f6; font-weight: bold; color: #0a192f;">
+                <option value="0">No Discount</option>
+                <option value="5">5% Off (2 Sessions)</option>
+                <option value="10">10% Off (3 Sessions)</option>
+                <option value="15">15% Off (4+ Sessions)</option>
+            </select><br><br>
 
-      <label>Eligible Discount:</label><br>
-      <select name="discounts">
-        <option>No Discount</option>
-        <option>5% Off</option>
-        <option>10% Off</option>
-        <option>15% Off</option>
-      </select><br><br>
+            <label for="checkin">Check-in Date:</label><br>
+            <input type="date" id="checkin" name="checkin" style="padding: 8px; width: 300px; border-radius: 4px; border: 1px solid #334455;" required><br>
+            <div class="error-msg" id="dateError">Please pick a check-in date for your booking.</div>
 
-      <label>Check-in Date:</label><br>
-      <input type="date" name="checkin"><br><br>
-
-       <p id="cta-links">
-           <div style="margin-top: 40px; margin-bottom: 20px;">
-            <a href="fees.html" style="color: white; background-color:  #006875; padding: 10px 20px; border-radius: 4px; text-decoration: none; border: 1px solid #334455;">Book Now</a>  
-        </div>
-        </p>
-    </form>
+            <div style="margin-top: 30px; margin-bottom: 20px;">
+                <button type="submit" style="color: white; background-color:#006875; padding: 12px 35px; border-radius: 4px; text-decoration: none; border: 1px solid #334455; font-size: 16px; font-weight: bold; cursor: pointer;">Book Now</button>  
+            </div>
+        </form>
     </main> 
-		 
-		  
-		 <footer>
+          
+    <footer>
         <hr>
-       <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
-            <p id="address">Johannesburg, Gauteng, South Africa</p>
-        <img src="LOGO 1.png" width="150" height="150" alt= >
+        <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
+        <p id="address">Johannesburg, Gauteng, South Africa</p>
+        <img src="LOGO 1.png" width="150" height="150" alt="Footer Logo">
     </footer>
-	
+
+    <!-- Hook up calculations script file link context -->
+    <script src="calculator.js"></script>
+</body>
 </html>
