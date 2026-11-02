@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>info@nextlevelgaming.co.za</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-page">
     <header>
         
              <img src="LOGO 1.png" width="200" height="200" alt= >
@@ -16,18 +17,19 @@
             <a href="contact.html">Contact</a>
             <a href="fees.html">Fees</a>
             <a href="profile.html">Profile</a>
-            <hr>
-        </nav>
+            </nav>
     </header>
+    <hr>
 
-    <main>
+    <main class="hero-section">
+        <div>
+        <h1 id="welcome-text"></h1id><b>Welcome to NEXT LEVEL GAMING & ESPORTS ARENA!</b></h1>
 
-        <h1><b>Welcome to NEXT LEVEL GAMING & ESPORTS ARENA!</b></h1>
-        <p><h4>The Ultimate Destination for Casual & Competitive Gaming.</h4></p>
-        <p>Johannesburg's premier modern, high-tech gaming environment built for casual players, competitive teams, schools, and corporate events.</p>
-
+        <p id="welcome"><h4>The Ultimate Destination for Casual & Competitive Gaming.</h4></p>
+        <p id="paragraph">Johannesburg's premier modern, high-tech gaming environment built for casual players, competitive teams, schools, and corporate events.</p>
+        </div>
         <h2> Multi-Booking Multiplier Active</h2>
-        <p style="margin-bottom: 12px; font-size: 0.9rem;">Mix and match any passes or experiences below. Booking multiple blocks increases your instant discount tier!</p>
+        <p id="paragraph">Mix and match any passes or experiences below. Booking multiple blocks increases your instant discount tier!</p>
         <div class="tiers">
           <div class="tier-box" id="tier1">1 Session: No Discount.</div>
           <div class="tier-box" id="tier2">2 Sessions: 5% Off</div>
@@ -36,13 +38,13 @@
         </div>
       </div>
     </section>
-
+<div>
 <h1>Gaming Packages</h1>
-<h4>Most Popular</h4>
+<h5>Most Popular</h5>
 <h3>VIP Gaming Experience</h3>
 <h5>Premium gaming experience with exclusive facilities</h5>
 <h1>R 1500</h1>
-<ul>
+<ul id="offers">
   <li>Private gaming booth</li>
   <li>Premium gaming equipment</li>
   <li>Food & Drinks</li>
@@ -50,17 +52,21 @@
   <li>Personal gaming assistant</li>
 </ul>
 <img src="VIP gaming experience.png" alt="VIP Gaming Experience" width="400" height="300">
-
-
-        <p>
-            <a href="overview.html">View Services</a> |
-            <a href="fees.html">Book Now</a>
+</div>
+<!-- added call-to-action buttons for navigation to other pages -->
+        <p id="cta-links">
+           <div style="margin-top: 40px; margin-bottom: 20px;">
+            <a href="overview.html" style="color: white; background-color: #18a10b; padding: 10px 20px; border-radius: 4px; text-decoration: none; border: 1px solid #334455;">View Services</a> |
+            <a href="fees.html" style="color: white; background-color:#18a10b; padding: 10px 20px; border-radius: 4px; text-decoration: none; border: 1px solid #334455;">Book Now</a> 
+        </div>
         </p>
+        
     </main>
 
     <footer>
         <hr>
-        <p>&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA. Johannesburg, Gauteng, South Africa</p>
+        <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
+            <p id="address">Johannesburg, Gauteng, South Africa</p>
         <img src="LOGO 1.png" width="150" height="150" alt= >
     </footer>
 </body>

@@ -357,7 +357,7 @@ color: #000000;
             margin-bottom: 100px;
          }
 
-         .about-page #address {
+         #address {
             text-align: center;
             font-family: 'Calibri', 'Arial', sans-serif;
             font-size: 20px;
@@ -366,7 +366,7 @@ color: #000000;
             margin-bottom: 20px;
          }
 
-         .about-page #copyright {
+         #copyright {
             text-align: center;
             font-family: 'Calibri', 'Arial', sans-serif;
             font-size: 20px;
@@ -465,6 +465,12 @@ color: #000000;
   border-radius: 8px;                  
   margin-bottom: 20px;                 
   box-sizing: border-box;
+}
+
+/* Makes package titles on the overview page pure white */
+.overview-page .package-title,
+.overview-page #type {
+    color: #ffffff !important;
 }
 
 

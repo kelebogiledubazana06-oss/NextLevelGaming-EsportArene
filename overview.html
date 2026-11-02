@@ -3,136 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXT LEVEL GAMING & ESPORTS ARENA</title>
-
+    <title>NEXT LEVEL GAMING & ESPORTS ARENA - Overview</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="overview-page">
     <header>
-        
-             <img src="LOGO 1.png" width="200" height="200" alt= >
-            <nav>
+        <img src="LOGO 1.png" width="200" height="200" alt="Logo">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="overview.html">Overview</a>
             <a href="contact.html">Contact</a>
             <a href="fees.html">Fees</a>
             <a href="profile.html">Profile</a>
-            <hr>
         </nav>
     </header>
+    <hr>
 
     <main>
-       
-         <div class="promo-banner">
-        <h2> Multi-Booking Multiplier Active</h2>
-        <p style="margin-bottom: 12px; font-size: 0.9rem;">Mix and match any passes or experiences below. Booking multiple blocks increases your instant discount tier!</p>
-        <div class="tiers">
-          <div class="tier-box" id="tier1">1 Session: No Discount.</div>
-          <div class="tier-box" id="tier2">2 Sessions: 5% Off</div>
-          <div class="tier-box" id="tier3">3 Sessions: 10% Off</div>
-          <div class="tier-box" id="tier4">4+ Sessions: 15% Off</div>
+        <h1 id="overview-heading">Overview</h1>
+        
+        <div class="promo-banner">
+            <h2>Multi-Booking Multiplier Active</h2>
+            <p id="paragraph">Mix and match any passes or experiences below. Booking multiple blocks increases your instant discount tier!</p>
+            <div class="tiers">
+                <div class="tier-box" id="tier1">1 Session: No Discount.</div>
+                <div class="tier-box" id="tier2">2 Sessions: 5% Off</div>
+                <div class="tier-box" id="tier3">3 Sessions: 10% Off</div>
+                <div class="tier-box" id="tier4">4+ Sessions: 15% Off</div>
+            </div>
         </div>
-      </div>
-    </section>
 
-<h1>Gaming Packages</h1>
-<h4> Most Popular</h4>
-<h3>VIP Gaming Experience</h3>
-<h5>Premium gaming experience with exclusive facilities</h5>
-<h1>R 1500</h1>
-<ul>
-  <li>Private gaming booth</li>
-  <li>Premium gaming equipment</li>
-  <li>Food & Drinks</li>
-  <li>Priority booking</li>
-  <li>Personal gaming assistant</li>
-</ul>
-<img src="VIP gaming experience.png" alt="VIP Gaming Experience" width="400" height="300">
+        <div>
+            <h1 id="gaming-packages">Gaming Packages</h1>
 
+            <!-- Interactive Search Filter Dashboard Element -->
+            <div class="filter-controls" style="margin-bottom: 40px; margin-top: 20px; text-align: left;">
+                <input type="text" id="packageSearch" placeholder="Search packages or price..." style="padding: 12px; width: 280px; border-radius: 6px; border: 1px solid #334455; font-size: 16px; margin-right: 10px; background-color: #ffffff; color: #0a192f;">
+                
+                <button class="filter-btn" onclick="filterPackages('all')" style="padding: 12px 20px; border-radius: 6px; border: none; background-color: #18a10b; color: white; cursor: pointer; font-weight: bold; margin-right: 8px;">All</button>
+                <button class="filter-btn" onclick="filterPackages('premium')" style="padding: 12px 20px; border-radius: 6px; border: none; background-color: #0f1d3a; color: white; cursor: pointer; font-weight: bold; margin-right: 8px;">Premium Passes</button>
+                <button class="filter-btn" onclick="filterPackages('challenge')" style="padding: 12px 20px; border-radius: 6px; border: none; background-color: #0f1d3a; color: white; cursor: pointer; font-weight: bold;">Simulators & Challenges</button>
+            </div>
 
-<h3>Ultimate Gamer Pass</h3>
-<h5>Unlimited gaming access for a full day</h5>
-<h1>R 1500</h1>
-<ul>
-  <li>PC gaming</li>
-  <li>Console gaming</li>
-  <li>High-speed internet</li>
-  <li>Snack Voucher</li>
-  <li>Tournament Entry</li>
-</ul>
-<img src="Ultimate gamer pass.png" alt="Ultimate Gamer Pass" width="400" height="300">
+            <!-- Managed Target Search -->
+            <div id="packagesContainer">
+                
+                <!-- Package 1 -->
+                <div class="package-card" data-category="premium">
+                    <h5 id="most-popular">Most Popular</h5>
+                    <h3 class="package-title">VIP Gaming Experience</h3>
+                    <h5 id="description">Premium gaming experience with exclusive facilities</h5>
+                    <h1 id="price">R 1500</h1>
+                    <ul id="overview-offers">
+                        <li>Private gaming booth</li>
+                        <li>Premium gaming equipment</li>
+                        <li>Food & Drinks</li>
+                        <li>Priority booking</li>
+                        <li>Personal gaming assistant</li>
+                    </ul>
+                    <img src="VIP gaming experience.png" alt="VIP Gaming Experience" width="400" height="300">
+                </div>
 
+                <!-- Package 2 -->
+                <div class="package-card" data-category="premium">
+                    <h3 class="package-title">Ultimate Gamer Pass</h3>
+                    <h5 id="description">Unlimited gaming access for a full day</h5>
+                    <h1 id="price">R 1500</h1>
+                    <ul id="overview-offers">
+                        <li>PC gaming</li>
+                        <li>Console gaming</li>
+                        <li>High-speed internet</li>
+                        <li>Snack Voucher</li>
+                        <li>Tournament Entry</li>
+                    </ul>
+                    <img src="Ultimate gamer pass.png" alt="Ultimate Gamer Pass" width="400" height="300">
+                </div>
 
-<h3>Esports Training Package</h3>
-<h5>Improve competitive gaming skills with professional coaching</h5>
-<h1>R 1500</h1>
-<ul>
-  <li>Strategy coaching</li>
-  <li>Team communication</li>
-  <li>Match analysis</li>
-  <li>Practice sessions</li>
-  <li>Performance feedback</li>
-</ul>
-  <img src="Esport training.png" alt="Esports Training Package" width="400" height="300">
+                <!-- Package 3 -->
+                <div class="package-card" data-category="premium">
+                    <h3 class="package-title">Esports Training Package</h3>
+                    <h5 id="description">Improve competitive gaming skills with professional coaching</h5>
+                    <h1 id="price">R 1500</h1>
+                    <ul id="overview-offers">
+                        <li>Strategy coaching</li>
+                        <li>Team communication</li>
+                        <li>Match analysis</li>
+                        <li>Practice sessions</li>
+                        <li>Performance feedback</li>
+                    </ul>
+                    <img src="Esport training.png" alt="Esports Training Package" width="400" height="300">
+                </div>
 
+                <!-- Package 4 -->
+                <div class="package-card" data-category="premium">
+                    <h3 class="package-title">Birthday Party Package</h3>
+                    <h5 id="description">Host a gaming-themed birthday celebration</h5>
+                    <h1 id="price">R 1500</h1>
+                    <ul id="overview-offers">
+                        <li>Reserved gaming area</li>
+                        <li>Multiplayer competitions</li>
+                        <li>Party decorations</li>
+                        <li>Catering</li>
+                        <li>Tournament prizes</li>
+                    </ul>
+                    <img src="Birthday party package.png" alt="Birthday Party Package" width="400" height="300">
+                </div>
 
-<h3>Birthday Party Package</h3>
-<h5>Host a gaming-themed birthday celebration</h5>
-<h1>R 1500</h1>
-<ul>
-  <li>Reserved gaming area</li>
-  <li>Multiplayer competitions</li>
-  <li>Party decorations</li>
-  <li>Catering</li>
-  <li>Tournament prizes</li>
-</ul>
-<img src="Birthday party package.png" alt="Birthday Party Package" width="400" height="300">
+                <!-- Package 5 -->
+                <div class="package-card" data-category="challenge">
+                    <h3 class="package-title">Virtual Reality Experience</h3>
+                    <h5 id="description">Explore immersive virtual reality games</h5>
+                    <h1 id="price">R 750</h1>
+                    <ul id="overview-offers">
+                        <li>VR headset</li>
+                        <li>Choice of games</li>
+                        <li>Staff assistance</li>
+                    </ul>
+                    <img src="Virtual reality experience.png" alt="Virtual Reality Experience" width="400" height="300">
+                </div>
 
+                <!-- Package 6 -->
+                <div class="package-card" data-category="challenge">
+                    <h3 class="package-title">Racing Simulator Challenge</h3>
+                    <h5 id="description">Race on professional driving simulators</h5>
+                    <h1 id="price">R 750</h1>
+                    <ul id="overview-offers">
+                        <li>Racing simulator</li>
+                        <li>Choice of tracks</li>
+                        <li>Leaderboard competition</li>
+                    </ul>
+                    <img src="Racing simulator challenge.png" alt="Racing Simulator Challenge" width="400" height="300">
+                </div>
 
-<h3>Virtual Reality Experience</h3>
-<h5>Explore immersive virtual reality games</h5>
-<h1>R 750</h1>
-<ul>
-  <li>VR headset</li>
-  <li>Choice of games</li>
-  <li>Staff assistance</li>
-</ul>
-<img src="Virtual reality experience.png" alt="Virtual Reality Experience" width="400" height="300">
+                <!-- Package 7 -->
+                <div class="package-card" data-category="challenge">
+                    <h3 class="package-title">Escape Room Challenge</h3>
+                    <h5 id="description">Solve puzzles and escape before time runs out</h5>
+                    <h1 id="price">R 750</h1>
+                    <ul id="overview-offers">
+                        <li>Team challenge</li>
+                        <li>Themed escape room</li>
+                        <li>Digital scorecard</li>
+                    </ul>
+                    <img src="Escape room challenge.png" alt="Escape Room Challenge" width="400" height="300">
+                </div>
 
+            </div>
+        </div>
 
-<h3>Racing Simulator Challenge</h3>
-<h5>Race on professional driving simulators</h5>
-<h1>R 750</h1>
-<ul>
-  <li>Racing simulator</li>
-  <li>Choice of tracks</li>
-  <li>Leaderboard competition</li>
-</ul>
-<img src="Racing simulator challenge.png" alt="Racing Simulator Challenge" width="400" height="300">
-
-
-<h3>Escape Room Challenge</h3>
-<h5>Solve puzzles and escape before time runs out</h5>
-<h1>R 750</h1>
-<ul>
-  <li>Team challenge</li>
-  <li>Themed escape room</li>
-  <li>Digital scorecard</li>
-</ul>
-<img src="Escape room challenge.png" alt="Escape Room Challenge" width="400" height="300">
-
-
-
-        <p>
-            <a href="overview.html">View Services</a> |
-            <a href="fees.html">Book Now</a>
-        </p>
+        <div style="margin-top: 40px; margin-bottom: 20px; text-align: left;">
+            <a href="overview.html" style="color: white; background-color: #18a10b; padding: 10px 20px; border-radius: 4px; text-decoration: none; border: 1px solid #334455;">View Services</a> |
+            <a href="fees.html" style="color: white; background-color: #18a10b; padding: 10px 20px; border-radius: 4px; text-decoration: none; border: 1px solid #334455;">Book Now</a> 
+        </div>
     </main>
 
     <footer>
         <hr>
-        <p>&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA. Johannesburg, Gauteng, South Africa</p>
-        <img src="LOGO 1.png" width="150" height="150" alt= >
+       <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
+            <p id="address">Johannesburg, Gauteng, South Africa</p>
+        <img src="LOGO 1.png" width="150" height="150" alt="Footer Logo">
     </footer>
-</body>
-</html>
+
+       <!-- JavaScript Logic for Real-Time Search & Category Filtering -->
+    <script>
+        // Handle input query entries
+        document.getElementById('packageSearch').addEventListener('keyup', function() {
+            let searchValue = this.value.toLowerCase();
+            let cards = document.querySelectorAll('.package-card');
+            
+            cards.forEach(card => {
+                let cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchValue)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        // Handle category dashboard button queries
+        function filterPackages(category) {
+            let cards = document.querySelectorAll('.package-card');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Safely toggle visual styling active states using window event context
+            let currentEvent = window.event || arguments.callee.caller.arguments[0];
+            if (currentEvent && currentEvent.target) {
+                let buttons = document.querySelectorAll('.filter-btn');
+                buttons.forEach(btn => btn.style.backgroundColor = '#0f1d3a');
+                currentEvent.target.style.backgroundColor = '#18a10b';
+            }
+        }
+    </script>
