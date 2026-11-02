@@ -149,11 +149,31 @@ color: #000000;
             margin-bottom: 50px;
          }
 
-          body {
+          #paragraph-2 {
+            text-align: left;
             font-family: 'Calibri', 'Arial', sans-serif;
-            margin: 0px;
-            padding: 0;
-            width: 100%;
+            font-size: 25px;
+            color:#ffffff;
+            margin-top: 100px;
+            margin-bottom: 50px;
+         }
+
+         #paragraph-2 {
+            text-align: left;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 25px;
+            color:#ffffff;
+            margin-top: 100px;
+            margin-bottom: 50px;
+         }
+
+         #paragraph-3 {
+            text-align: left;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 25px;
+            color:#ffffff;
+            margin-top: -20px;
+            margin-bottom: 50px;
         }
 
             .home-page #address {
@@ -473,6 +493,241 @@ color: #000000;
     color: #ffffff !important;
 }
 
+/* ==========================================================================
+   NEXT LEVEL GAMING & ESPORTS ARENA - MULTI-PAGE MEDIA QUERIES (Max 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* Global Section Overrides & Background Control */
+    .hero-section {
+        min-height: auto;
+        padding: 30px 15px;
+        background-attachment: scroll;
+    }
 
+    /* Standard Header Flexbox Restacking */
+    header {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 20px 15px !important;
+        gap: 15px;
+    }
 
-         
+    header img {
+        width: 130px !important;
+        height: auto !important;
+    }
+
+    /* Navigation Bar Wrappers & Spacing */
+    header nav {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px 15px !important;
+        width: 100% !important;
+    }
+
+    header nav a {
+        margin-left: 0 !important;
+        font-size: 14px !important;
+        padding: 5px 8px;
+    }
+
+    /* Heading Layout fixes and Margin Reset Overrides */
+    h2, .home-page h2 {
+        font-size: 26px !important;
+        margin-top: 30px !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+    }
+
+    #welcome, h4 {
+        font-size: 22px !important;
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+    }
+
+    #welcome-text {
+        font-size: 26px !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+    }
+
+    /* Body Copy & Content Passages */
+    #paragraph, #paragraph-2, #paragraph-3 {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+    }
+
+    /* Core Dynamic Flex System for Dynamic Tiers Container */
+    .tiers {
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 20px auto !important;
+        padding: 15px !important;
+        gap: 15px !important;
+    }
+
+    .tier-box {
+        width: 100% !important;
+        height: auto !important;
+        min-height: initial !important;
+        padding: 20px !important;
+        flex: none !important;
+    }
+
+    /* Package Containers, Cards & Component Wrappers */
+    #packagesContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+    }
+
+    .package-card {
+        width: 100% !important;
+        box-sizing: border-box;
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Form Layouts, Text Fields, and Inputs */
+    #enquiryForm, #feesForm {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    #enquiryForm input[type="text"],
+    #enquiryForm input[type="email"],
+    #enquiryForm input[type="tel"],
+    #feesForm input[type="text"],
+    #feesForm input[type="email"],
+    #feesForm input[type="tel"],
+    #packageSearch,
+    select#discounts,
+    input#checkin,
+    textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 16px !important; /* Prevents auto-zooming on iOS viewports */
+        margin-bottom: 12px !important;
+    }
+
+    /* Form Checklist Grid & Labels Group */
+    #packageGroup label {
+        font-size: 14px !important;
+        line-height: 1.4;
+    }
+
+    /* Filter Dashboard & Controls Row */
+    .filter-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center !important;
+    }
+
+    .filter-controls input {
+        margin-right: 0 !important;
+    }
+
+    .filter-btn {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
+    /* Global Adaptive Media Scaling rule for Imagery and Graphics */
+    main img {
+        max-width: 100% !important;
+        height: auto !important;
+        width: auto !important;
+        display: block !important;
+        margin: 15px auto !important;
+    }
+
+    /* Interactive Leaflet Mapping Canvas Restyling */
+    #map {
+        height: 280px !important;
+        width: 100% !important;
+    }
+
+    /* Dynamic Button Lists & Separation Links */
+    #cta-links {
+        font-size: 0 !important; /* Strips structural visibility from plain text '|' characters */
+    }
+
+    #cta-links div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px !important;
+    }
+
+    #cta-links a {
+        display: block !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        box-sizing: border-box;
+    }
+
+    /* Centered Structural Layout Rule for Footers */
+    footer {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 25px 15px !important;
+        gap: 10px;
+    }
+
+    footer #copyright {
+        margin-top: 20px !important;
+        font-size: 15px !important;
+    }
+
+    footer #address {
+        margin-bottom: 15px !important;
+        font-size: 15px !important;
+    }
+
+    footer img {
+        width: 100px !important;
+        height: auto !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Direct fix to stop main content elements from overlapping on mobile */
+    main, main * {
+        position: static !important;
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+        padding-top: 0 !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Keep headings crisp and separated */
+    main h2 {
+        font-size: 24px !important;
+        margin-top: 25px !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+        text-align: center !important;
+    }
+
+    /* Ensure plain paragraphs flow natively underneath headings */
+    main p {
+        font-size: 16px !important;
+        display: block !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+    }
+}
