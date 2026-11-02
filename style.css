@@ -554,7 +554,7 @@ color: #000000;
         text-align: center !important;
     }
 
-    /* Body Copy & Content Passages */
+    /* B0dy Content Passages */
     #paragraph, #paragraph-2, #paragraph-3 {
         font-size: 16px !important;
         line-height: 1.6 !important;
@@ -616,7 +616,7 @@ color: #000000;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        font-size: 16px !important; /* Prevents auto-zooming on iOS viewports */
+        font-size: 16px !important; 
         margin-bottom: 12px !important;
     }
 
@@ -661,7 +661,7 @@ color: #000000;
 
     /* Dynamic Button Lists & Separation Links */
     #cta-links {
-        font-size: 0 !important; /* Strips structural visibility from plain text '|' characters */
+        font-size: 0 !important;
     }
 
     #cta-links div {
@@ -705,7 +705,7 @@ color: #000000;
 }
 
 @media screen and (max-width: 768px) {
-    /* Direct fix to stop main content elements from overlapping on mobile */
+  
     main, main * {
         position: static !important;
         margin-top: 0 !important;
@@ -714,7 +714,7 @@ color: #000000;
         line-height: 1.5 !important;
     }
 
-    /* Keep headings crisp and separated */
+    /* Keep headings separated */
     main h2 {
         font-size: 24px !important;
         margin-top: 25px !important;
