@@ -4,64 +4,169 @@
   <meta charset="UTF-8">
   <title>NEXT LEVEL GAMING & ESPORTS ARENA</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+      /* Error message tracking styles directly matching previous pages */
+      .error-msg {
+        display: none;
+        color: #ff4d4d;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-family: 'Calibri', 'Arial', sans-serif;
+      }
+      .was-validated .show-error {
+        display: block !important;
+      }
+      .invalid-border {
+        border: 2px solid #ff4d4d !important;
+      }
+  </style>
 </head>
+<body class="contact-page">
   <header>
-        
-             <img src="LOGO 1.png" width="200" height="200" alt= >
-            <nav>
+         <img src="LOGO 1.png" width="200" height="200" alt="Logo">
+         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="overview.html">Overview</a>
             <a href="contact.html">Contact</a>
             <a href="fees.html">Fees</a>
             <a href="profile.html">Profile</a>
-            <hr>
         </nav>
-    </header>
-    <body class="contact-page">
-      <h1>Gamer Profile</h1>
-        <main>
-            
+  </header>
+  <hr>
 
-              
-              <form action="profile.html" method="GET">
-                
-                  <label for="username">Username:</label><br>
-                  <input type="text" id="username" name="username" required width="100%"><br><br>
+  <h2>Gamer Profile</h2>
+  <main>
+      <form id="profileForm" action="profile.html" method="GET" novalidate>
+        
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" name="username" required><br>
+          <div class="error-msg" id="usernameError">Please enter your username.</div><br>
 
-                  <label for="email">Email Address:</label><br>
-                  <input type="email" id="email" name="email" required><br><br>
+          <label for="email">Email Address:</label><br>
+          <input type="email" id="email" name="email" required><br>
+          <div class="error-msg" id="emailError">Please enter a valid email address.</div><br>
 
-                  <label for="phone">Phone Number:</label><br>
-                  <input type="tel" id="phone" name="phone" required><br><br>
+          <label for="phone">Phone Number:</label><br>
+          <input type="tel" id="phone" name="phone" required><br>
+          <div class="error-msg" id="phoneError">Please enter a valid 10-digit phone number.</div><br>
 
-                  <label for="password">Password:</label><br>
-                  <input type="password" id="password" name="password" required><br><br>
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" name="password" required><br>
+          <div class="error-msg" id="passwordError">Password cannot be left blank.</div><br>
 
-                  <label for="confirm-password">Confirm Password:</label><br>
-                  <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+          <label for="confirm-password">Confirm Password:</label><br>
+          <input type="password" id="confirm-password" name="confirm-password" required><br>
+          <div class="error-msg" id="confirmPasswordError">Passwords do not match.</div><br>
 
-                  <input type="checkbox" id="terms" name="terms" required>
-                  <label for="terms">I accept the Arena rules</label><br><br>
+          <label style="display: flex; align-items: center; cursor: pointer;">
+              <input type="checkbox" id="terms" name="terms" required style="margin-right: 8px;">
+              I accept the Arena rules
+          </label>
+          <div class="error-msg" id="termsError">You must accept the Arena rules to continue.</div><br>
 
-                   <div style="margin-top: 40px; margin-bottom: 20px;">
-       <input type="submit" value="Register Account" style="background-color: #006875; color: white; padding: 10px 20px; border-radius: 4px; border: 1px solid #334455;"></button>
-      </div>
-
-                  
-                
-              </form>
-
-
-            
-        </main>
-		 
-		  
-		 <footer>
+          <div style="margin-top: 40px; margin-bottom: 20px;">
+              <input type="submit" value="Register Account" style="background-color: #006875; color: white; padding: 10px 20px; border-radius: 4px; border: 1px solid #334455; cursor: pointer; font-size: 15px; font-weight: bold;">
+          </div>
+          
+          <!-- Registration submission validation notification feedback -->
+          <div id="formStatus" style="margin-top: 15px; font-weight: bold; font-family: 'Calibri', 'Arial', sans-serif;"></div>
+      </form>
+  </main>
+		   
+  <footer>
         <hr>
-       <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
-            <p id="address">Johannesburg, Gauteng, South Africa</p>
-        <img src="LOGO 1.png" width="150" height="150" alt= >
-    </footer>
-	
+        <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
+        <p id="address">Johannesburg, Gauteng, South Africa</p>
+        <img src="LOGO 1.png" width="150" height="150" alt="Footer Logo">
+  </footer>
+
+  <!-- Gamer Profile Form Validation -->
+  <script>
+  document.getElementById('profileForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevents layout from flickering or flashing
+      
+      let isValid = true;
+      const form = document.getElementById('profileForm');
+      const statusDiv = document.getElementById('formStatus');
+      
+      // Reset form status and visual markers completely
+      form.classList.remove('was-validated');
+      statusDiv.textContent = '';
+      
+      const errorMessages = document.querySelectorAll('.error-msg');
+      errorMessages.forEach(msg => msg.classList.remove('show-error'));
+      
+      const inputs = document.querySelectorAll('#profileForm input[required]');
+      inputs.forEach(input => input.classList.remove('invalid-border'));
+
+      // variables for each input field
+      const usernameField = document.getElementById('username');
+      const emailField = document.getElementById('email');
+      const phoneField = document.getElementById('phone');
+      const passwordField = document.getElementById('password');
+      const confirmField = document.getElementById('confirm-password');
+      const termsField = document.getElementById('terms');
+
+      // username validation
+      if (usernameField.value.trim() === '') {
+          document.getElementById('usernameError').classList.add('show-error');
+          usernameField.classList.add('invalid-border');
+          isValid = false;
+      }
+
+      // email validation using regex pattern
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailField.value.trim())) {
+          document.getElementById('emailError').classList.add('show-error');
+          emailField.classList.add('invalid-border');
+          isValid = false;
+      }
+
+      // phone validation using regex pattern
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phoneField.value.trim())) {
+          document.getElementById('phoneError').classList.add('show-error');
+          phoneField.classList.add('invalid-border');
+          isValid = false;
+      }
+
+      // password validation 
+      if (passwordField.value === '') {
+          document.getElementById('passwordError').classList.add('show-error');
+          passwordField.classList.add('invalid-border');
+          isValid = false;
+      }
+
+      // password confirmation validation
+      if (confirmField.value === '' || passwordField.value !== confirmField.value) {
+          document.getElementById('confirmPasswordError').classList.add('show-error');
+          confirmField.classList.add('invalid-border');
+          isValid = false;
+      }
+
+      // agreement checkbox validation
+      if (!termsField.checked) {
+          document.getElementById('termsError').classList.add('show-error');
+          isValid = false;
+      }
+
+      // Verify overall calculation validation parameters status metrics
+      if (!isValid) {
+          form.classList.add('was-validated'); 
+      } else {
+          statusDiv.style.color = '#ffaa00'; 
+          statusDiv.textContent = 'Registering account...';
+
+          setTimeout(() => {
+              statusDiv.style.color = '#006875'; 
+              statusDiv.textContent = 'Account registered successfully!';
+              form.reset(); 
+              form.classList.remove('was-validated'); 
+          }, 1000);
+      }
+  });
+  </script>
+</body>
 </html>
