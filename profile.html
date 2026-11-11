@@ -42,7 +42,6 @@
         </nav>
   </header>
 
-
   <h2>Gamer Profile</h2>
   <main>
       <form id="profileForm" action="profile.html" method="GET" novalidate>
@@ -83,7 +82,6 @@
   </main>
 		   
   <footer>
-      
         <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
         <p id="address">Johannesburg, Gauteng, South Africa</p>
         <img src="LOGO 1.png" width="150" height="150" alt="Footer Logo">
@@ -91,78 +89,134 @@
 
   <!-- Gamer Profile Form Validation -->
   <script>
-  document.getElementById('profileForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevents layout from flickering or flashing
+  const form = document.getElementById('profileForm');
+  const usernameField = document.getElementById('username');
+  const emailField = document.getElementById('email');
+  const phoneField = document.getElementById('phone');
+  const passwordField = document.getElementById('password');
+  const confirmField = document.getElementById('confirm-password');
+  const termsField = document.getElementById('terms');
+  const statusDiv = document.getElementById('formStatus');
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[0-9]{10}$/;
+
+  // Real-time Input Listeners
+  usernameField.addEventListener('input', function() {
+      if (usernameField.value.trim() !== '') {
+          document.getElementById('usernameError').classList.remove('show-error');
+          usernameField.classList.remove('invalid-border');
+      }
+  });
+
+  emailField.addEventListener('input', function() {
+      if (emailRegex.test(emailField.value.trim())) {
+          document.getElementById('emailError').classList.remove('show-error');
+          emailField.classList.remove('invalid-border');
+      }
+  });
+
+  phoneField.addEventListener('input', function() {
+      if (phoneRegex.test(phoneField.value.trim())) {
+          document.getElementById('phoneError').classList.remove('show-error');
+          phoneField.classList.remove('invalid-border');
+      }
+  });
+
+  passwordField.addEventListener('input', function() {
+      if (passwordField.value !== '') {
+          document.getElementById('passwordError').classList.remove('show-error');
+          passwordField.classList.remove('invalid-border');
+      }
+      // Re-validate confirmation field live if password changes
+      if (confirmField.value !== '' && passwordField.value === confirmField.value) {
+          document.getElementById('confirmPasswordError').classList.remove('show-error');
+          confirmField.classList.remove('invalid-border');
+      }
+  });
+
+  confirmField.addEventListener('input', function() {
+      if (confirmField.value !== '' && passwordField.value === confirmField.value) {
+          document.getElementById('confirmPasswordError').classList.remove('show-error');
+          confirmField.classList.remove('invalid-border');
+      }
+  });
+
+  termsField.addEventListener('change', function() {
+      if (termsField.checked) {
+          document.getElementById('termsError').classList.remove('show-error');
+      }
+  });
+
+  // Form Submit Handler
+  form.addEventListener('submit', function(event) {
+      event.preventDefault(); 
       
       let isValid = true;
-      const form = document.getElementById('profileForm');
-      const statusDiv = document.getElementById('formStatus');
-      
-      // Reset form status and visual markers completely
-      form.classList.remove('was-validated');
       statusDiv.textContent = '';
-      
-      const errorMessages = document.querySelectorAll('.error-msg');
-      errorMessages.forEach(msg => msg.classList.remove('show-error'));
-      
-      const inputs = document.querySelectorAll('#profileForm input[required]');
-      inputs.forEach(input => input.classList.remove('invalid-border'));
 
-      // variables for each input field
-      const usernameField = document.getElementById('username');
-      const emailField = document.getElementById('email');
-      const phoneField = document.getElementById('phone');
-      const passwordField = document.getElementById('password');
-      const confirmField = document.getElementById('confirm-password');
-      const termsField = document.getElementById('terms');
-
-      // username validation
+      // Username check
       if (usernameField.value.trim() === '') {
           document.getElementById('usernameError').classList.add('show-error');
           usernameField.classList.add('invalid-border');
           isValid = false;
+      } else {
+          document.getElementById('usernameError').classList.remove('show-error');
+          usernameField.classList.remove('invalid-border');
       }
 
-      // email validation using regex pattern
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Email check
       if (!emailRegex.test(emailField.value.trim())) {
           document.getElementById('emailError').classList.add('show-error');
           emailField.classList.add('invalid-border');
           isValid = false;
+      } else {
+          document.getElementById('emailError').classList.remove('show-error');
+          emailField.classList.remove('invalid-border');
       }
 
-      // phone validation using regex pattern
-      const phoneRegex = /^[0-9]{10}$/;
+      // Phone check
       if (!phoneRegex.test(phoneField.value.trim())) {
           document.getElementById('phoneError').classList.add('show-error');
           phoneField.classList.add('invalid-border');
           isValid = false;
+      } else {
+          document.getElementById('phoneError').classList.remove('show-error');
+          phoneField.classList.remove('invalid-border');
       }
 
-      // password validation 
+      // Password check
       if (passwordField.value === '') {
           document.getElementById('passwordError').classList.add('show-error');
           passwordField.classList.add('invalid-border');
           isValid = false;
+      } else {
+          document.getElementById('passwordError').classList.remove('show-error');
+          passwordField.classList.remove('invalid-border');
       }
 
-      // password confirmation validation
+      // Confirm Password check
       if (confirmField.value === '' || passwordField.value !== confirmField.value) {
           document.getElementById('confirmPasswordError').classList.add('show-error');
           confirmField.classList.add('invalid-border');
           isValid = false;
+      } else {
+          document.getElementById('confirmPasswordError').classList.remove('show-error');
+          confirmField.classList.remove('invalid-border');
       }
 
-      // agreement checkbox validation
+      // Terms Checkbox check
       if (!termsField.checked) {
           document.getElementById('termsError').classList.add('show-error');
           isValid = false;
+      } else {
+          document.getElementById('termsError').classList.remove('show-error');
       }
 
-      // Verify overall calculation validation parameters status metrics
       if (!isValid) {
           form.classList.add('was-validated'); 
       } else {
+          form.classList.remove('was-validated');
           statusDiv.style.color = '#ffaa00'; 
           statusDiv.textContent = 'Registering account...';
 
@@ -170,7 +224,6 @@
               statusDiv.style.color = '#006875'; 
               statusDiv.textContent = 'Account registered successfully!';
               form.reset(); 
-              form.classList.remove('was-validated'); 
           }, 1000);
       }
   });

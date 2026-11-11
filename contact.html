@@ -12,11 +12,10 @@
     <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="style.css">
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- added Leaflet CSS and JS for map functionality -->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- added Leaflet CSS and JS for map functionality -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
- <style>
+    <style>
       .error-msg {
         display: none !important;
       }
@@ -31,9 +30,8 @@
 </head>
 <body class="contact-page">
   <header>
-        
-             <img src="LOGO 1.png" width="200" height="200" alt= >
-            <nav>
+        <img src="LOGO 1.png" width="200" height="200" alt="">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="overview.html">Overview</a>
@@ -47,21 +45,18 @@
     <h2>Contact & Booking Enquiry</h2>
     
     <main>
-
-    <p>Call us: 014 371 0909</p>
-    <p>Email: info@nextlevelgaming.co.za</p>
-     <!-- External Social media Links -->
-         <p id="cta-links">
-         <div style="margin-top: 40px; margin-bottom: 20px;">
-        <a href="https://www.facebook.com/me/" target="_blank" rel="noopener" style="color: white; background-color: #006875; padding: 10px 20px; border-radius: 4px; font-size: 15px; font-weight: bold; border: 1px solid #334455;">Facebook</a> | 
-        <a href="https://wa.me" target="_blank" rel="noopener" style="color: white; background-color: #006875; padding: 10px 20px; border-radius: 4px; font-size: 15px; font-weight: bold; border: 1px solid #334455;">Chat on WhatsApp</a>
+        <p>Call us: 014 371 0909</p>
+        <p>Email: info@nextlevelgaming.co.za</p>
+        <!-- External Social media Links -->
+        <p id="cta-links"></p>
+        <div style="margin-top: 40px; margin-bottom: 20px;">
+            <a href="https://www.facebook.com/me/" target="_blank" rel="noopener" style="color: white; background-color: #006875; padding: 10px 20px; border-radius: 4px; font-size: 15px; font-weight: bold; border: 1px solid #334455;">Facebook</a> | 
+            <a href="https://wa.me" target="_blank" rel="noopener" style="color: white; background-color: #006875; padding: 10px 20px; border-radius: 4px; font-size: 15px; font-weight: bold; border: 1px solid #334455;">Chat on WhatsApp</a>
         </div>
-        </p>
-    <p>Find us: Johannesburg, Gauteng, South Africa</p>
-   
+        <p>Find us: Johannesburg, Gauteng, South Africa</p>
 
-     <div id="map" style="height: 400px; width: 100%; border-radius: 8px; margin-top: 20px; border: 1px solid #ccc;"></div>
-  <h2>Send an Enquiry</h2>
+        <div id="map" style="height: 400px; width: 100%; border-radius: 8px; margin-top: 20px; border: 1px solid #ccc;"></div>
+        <h2>Send an Enquiry</h2>
         
         <!-- Contact Form -->
         <form id="enquiryForm" action="#" method="post" novalidate>
@@ -81,13 +76,12 @@
             <input type="tel" id="phone" name="phone" placeholder="e.g. 0821234567" required>
             <div class="error-msg" id="phoneError">Please enter a valid 10-digit phone number.</div>
         
-            
             <br>
             <label>Message:</label><br>
             <textarea name="message" rows="4" cols="40"></textarea><br><br>
             
             <div style="margin-top: 25px; text-align: center;"> 
-                <input type="submit" value="Send Enquiry" style="background-color: #006875; color: white; padding: 12px 30px; border-radius: 4px;font-size: 15px; font-weight: bold; border: 1px solid #334455; cursor: pointer; font-size: 15px;"> 
+                <input type="submit" value="Send Enquiry" style="background-color: #006875; color: white; padding: 12px 30px; border-radius: 4px; font-size: 15px; font-weight: bold; border: 1px solid #334455; cursor: pointer;"> 
             </div>
             
             <div id="formStatus" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
@@ -95,55 +89,89 @@
 
         <!-- JavaScript block for Validation -->
         <script>
-        document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+        const form = document.getElementById('enquiryForm');
+        const nameInput = document.getElementById('name');
+        const lastNameInput = document.getElementById('last_name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+
+        // Regex setup
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9]{10}$/;
+
+        // Real-time evaluation input functions
+        nameInput.addEventListener('input', function() {
+            if (nameInput.value.trim() !== '') {
+                document.getElementById('nameError').classList.remove('show-error');
+            }
+        });
+
+        lastNameInput.addEventListener('input', function() {
+            if (lastNameInput.value.trim() !== '') {
+                document.getElementById('lastNameError').classList.remove('show-error');
+            }
+        });
+
+        emailInput.addEventListener('input', function() {
+            if (emailRegex.test(emailInput.value.trim())) {
+                document.getElementById('emailError').classList.remove('show-error');
+            }
+        });
+
+        phoneInput.addEventListener('input', function() {
+            if (phoneRegex.test(phoneInput.value.trim())) {
+                document.getElementById('phoneError').classList.remove('show-error');
+            }
+        });
+
+        // Main Submit Validation
+        form.addEventListener('submit', function(event) {
             event.preventDefault(); 
             
             let isValid = true;
-            const form = document.getElementById('enquiryForm');
-            
-            // Tell CSS we are trying to validate now
             form.classList.add('was-validated');
            
-            // Clear previous status message
             const statusDiv = document.getElementById('formStatus');
             statusDiv.textContent = '';
 
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const lastName = document.getElementById('last_name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
+            const name = nameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const phone = phoneInput.value.trim();
           
             // Validate name
             if (name === '') {
                 document.getElementById('nameError').classList.add('show-error');
                 isValid = false;
+            } else {
+                document.getElementById('nameError').classList.remove('show-error');
             }
 
             // Validate last name
             if (lastName === '') {
                 document.getElementById('lastNameError').classList.add('show-error');
                 isValid = false;
+            } else {
+                document.getElementById('lastNameError').classList.remove('show-error');
             }
 
-            // Validate email format using regex
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // Validate email
             if (!emailRegex.test(email)) {
                 document.getElementById('emailError').classList.add('show-error');
                 isValid = false;
+            } else {
+                document.getElementById('emailError').classList.remove('show-error');
             }
 
-           // Validate phone number to be exactly 10 digits
-            const phoneRegex = /^[0-9]{10}$/;
+            // Validate phone number
             if (phone === '' || !phoneRegex.test(phone)) {
                 document.getElementById('phoneError').classList.add('show-error');
                 isValid = false;
+            } else {
+                document.getElementById('phoneError').classList.remove('show-error');
             }
 
-
-          
-
-            // If all validations pass, simulate sending the enquiry
+            // Process form if completely clear
             if (isValid) {
                 statusDiv.style.color = '#ffaa00'; 
                 statusDiv.textContent = 'Sending enquiry...';
@@ -152,20 +180,18 @@
                     statusDiv.style.color = '#00ff66'; 
                     statusDiv.textContent = 'Enquiry sent successfully!';
                     form.reset(); 
-                    form.classList.remove('was-validated'); // Hide all errors again
+                    form.classList.remove('was-validated'); 
                 }, 1000);
             }
         });
         </script>
-
     </main>
 
     <footer>
        <script src="script.js"></script>
-        
        <p id="copyright">&copy; 2026 NEXT LEVEL GAMING & ESPORTS ARENA.</p>
-            <p id="address">Johannesburg, Gauteng, South Africa</p>
-        <img src="LOGO 1.png" width="150" height="150" alt= >
+       <p id="address">Johannesburg, Gauteng, South Africa</p>
+       <img src="LOGO 1.png" width="150" height="150" alt="">
     </footer>
 </body>
 </html>

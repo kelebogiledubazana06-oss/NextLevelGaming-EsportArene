@@ -136,5 +136,145 @@
 
     <!-- Hook up calculations script file link context -->
     <script src="calculator.js"></script>
+<script>
+        const form = document.getElementById('feesForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const checkinInput = document.getElementById('checkin');
+        const checkboxes = document.querySelectorAll('.pkg-checkbox');
+        const discountSelect = document.getElementById('discounts');
+        const calcResults = document.getElementById('calcResults');
+        const calcBtn = document.getElementById('calcBtn');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9]{10}$/;
+
+        function updateDiscountAndPackages() {
+            const checkedCount = document.querySelectorAll('.pkg-checkbox:checked').length;
+            if (checkedCount >= 4) {
+                discountSelect.value = "15";
+            } else if (checkedCount === 3) {
+                discountSelect.value = "10";
+            } else if (checkedCount === 2) {
+                discountSelect.value = "5";
+            } else {
+                discountSelect.value = "0";
+            }
+
+            if (checkedCount > 0) {
+                document.getElementById('pkgError').classList.remove('show-error');
+            }
+        }
+
+        function calculateFees() {
+            let baseTotal = 0;
+            const selectedCheckboxes = document.querySelectorAll('.pkg-checkbox:checked');
+            
+            selectedCheckboxes.forEach(cb => {
+                baseTotal += parseFloat(cb.getAttribute('data-price'));
+            });
+
+            if (selectedCheckboxes.length === 0) {
+                calcResults.style.display = 'block';
+                calcResults.style.backgroundColor = '#ff4d4d';
+                calcResults.innerHTML = '<strong>Error:</strong> Please select at least one gaming package first to compute fees.';
+                document.getElementById('pkgError').classList.add('show-error');
+                return false;
+            }
+
+            const discountPercent = parseInt(discountSelect.value);
+            const discountAmount = baseTotal * (discountPercent / 100);
+            const finalTotal = baseTotal - discountAmount;
+
+            calcResults.style.display = 'block';
+            calcResults.style.backgroundColor = '#006875';
+            calcResults.innerHTML = `
+                <h3>Fee Estimation breakdown:</h3>
+                <p>Subtotal: R ${baseTotal.toLocaleString()}</p>
+                <p>Discount Applied (${discountPercent}%): - R ${discountAmount.toLocaleString()}</p>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.3)">
+                <p style="font-size: 18px;"><strong>Estimated Total: R ${finalTotal.toLocaleString()}</strong></p>
+            `;
+            return true;
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateDiscountAndPackages);
+        });
+
+        calcBtn.addEventListener('click', calculateFees);
+
+        nameInput.addEventListener('input', function() {
+            if (nameInput.value.trim() !== '') {
+                document.getElementById('nameError').classList.remove('show-error');
+                nameInput.classList.remove('invalid-border');
+            }
+        });
+
+        emailInput.addEventListener('input', function() {
+            if (emailRegex.test(emailInput.value.trim())) {
+                document.getElementById('emailError').classList.remove('show-error');
+                emailInput.classList.remove('invalid-border');
+            }
+        });
+
+        phoneInput.addEventListener('input', function() {
+            if (phoneRegex.test(phoneInput.value.trim())) {
+                document.getElementById('phoneError').classList.remove('show-error');
+                phoneInput.classList.remove('invalid-border');
+            }
+        });
+
+        checkinInput.addEventListener('change', function() {
+            if (checkinInput.value !== '') {
+                document.getElementById('dateError').classList.remove('show-error');
+                checkinInput.classList.remove('invalid-border');
+            }
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+            form.classList.add('was-validated');
+
+            if (nameInput.value.trim() === '') {
+                document.getElementById('nameError').classList.add('show-error');
+                nameInput.classList.add('invalid-border');
+                isValid = false;
+            }
+
+            if (!emailRegex.test(emailInput.value.trim())) {
+                document.getElementById('emailError').classList.add('show-error');
+                emailInput.classList.add('invalid-border');
+                isValid = false;
+            }
+
+            if (!phoneRegex.test(phoneInput.value.trim())) {
+                document.getElementById('phoneError').classList.add('show-error');
+                phoneInput.classList.add('invalid-border');
+                isValid = false;
+            }
+
+            const checkedCount = document.querySelectorAll('.pkg-checkbox:checked').length;
+            if (checkedCount === 0) {
+                document.getElementById('pkgError').classList.add('show-error');
+                isValid = false;
+            }
+
+            if (checkinInput.value === '') {
+                document.getElementById('dateError').classList.add('show-error');
+                checkinInput.classList.add('invalid-border');
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Booking Request successfully captured!');
+                form.reset();
+                calcResults.style.display = 'none';
+                form.classList.remove('was-validated');
+            }
+        });
+    </script>
 </body>
 </html>
